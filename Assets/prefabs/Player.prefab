@@ -129,8 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587d838c38296cf41bd1995e8dec6879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SyncPositionX: 0
-  SyncPositionY: 0
+  SyncPositionX: 1
+  SyncPositionY: 1
   SyncPositionZ: 0
   SyncRotAngleX: 0
   SyncRotAngleY: 0
@@ -242,6 +242,8 @@ GameObject:
   - component: {fileID: 2191792363341552049}
   - component: {fileID: 150546326815700596}
   - component: {fileID: 2495919307215034488}
+  - component: {fileID: 2957053156705987547}
+  - component: {fileID: 437823972506408649}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -316,6 +318,50 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &2957053156705987547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7066141519848855041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d12e73820ce13a4f8b3684e051fe9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputReader: {fileID: 11400000, guid: b996f719bbcc66a439177f16ddd64e0a, type: 2}
+  bodyTransform: {fileID: 3101878508493385808}
+  rb: {fileID: 437823972506408649}
+  movementSpeed: 5
+  turningRate: 180
+--- !u!50 &437823972506408649
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7066141519848855041}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &7785054634825807076
 GameObject:
   m_ObjectHideFlags: 0
