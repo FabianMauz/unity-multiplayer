@@ -90,6 +90,10 @@ public class ProjectileLauncher : NetworkBehaviour{
             projectileInstance.transform.up = direction;
             spawnDummyProjectileClientRpc(spawnPoint, direction);
             Physics2D.IgnoreCollision(collider, projectileInstance.GetComponent<Collider2D>());
+
+            DealDamageOnContact d = projectileInstance.GetComponent<DealDamageOnContact>();
+            if (d != null) { d.setOwner(OwnerClientId);}
+
             Rigidbody2D rb = projectileInstance.GetComponent<Rigidbody2D>();
             rb.velocity = rb.transform.up * projectileSpeed;
        
