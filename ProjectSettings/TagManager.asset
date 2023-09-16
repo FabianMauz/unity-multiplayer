@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - Projectile
-  - 
+  - Pickup
   - 
   - 
   - 
@@ -49,4 +49,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 37095333
+    locked: 0
+  - name: New Layer 4
+    uniqueID: 710052221
     locked: 0

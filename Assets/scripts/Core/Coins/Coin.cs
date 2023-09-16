@@ -7,6 +7,8 @@ public abstract class Coin : NetworkBehaviour{
     [SerializeField]
     private SpriteRenderer renderer;
 
+    Vector3 previousPosition;
+
     protected int coinValue=10;
     protected bool alreadyCollected;
 
@@ -14,6 +16,13 @@ public abstract class Coin : NetworkBehaviour{
 
     public void setValue(int value) {
         this.coinValue = value;
+    }
+
+    private void Update() {
+        if (previousPosition != transform.position) {
+            show(true);
+        }
+        previousPosition = transform.position;
     }
 
     protected void show(bool show) {
