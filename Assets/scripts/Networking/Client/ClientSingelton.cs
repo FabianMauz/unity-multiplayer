@@ -6,7 +6,7 @@ using UnityEngine;
 public class ClientSingelton : MonoBehaviour{
 
     private static ClientSingelton instance;
-    private ClientGameManager gameManager;
+    public ClientGameManager gameManager { get; private set; }
 
     public static ClientSingelton Instance { get {
             if (instance != null) { return instance; }
@@ -23,9 +23,9 @@ public class ClientSingelton : MonoBehaviour{
         DontDestroyOnLoad(gameObject);
     }
 
-    public async Task createClient() {
+    public async Task<bool> createClient() {
         gameManager = new ClientGameManager();
-        await gameManager.initAsync();
+        return await gameManager.initAsync();
     }
 
 }

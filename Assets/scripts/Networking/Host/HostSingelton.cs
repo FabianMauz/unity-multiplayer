@@ -23,7 +23,7 @@ public class HostSingelton : MonoBehaviour{
         DontDestroyOnLoad(gameObject);
     }
 
-    public async Task createClient() {
+    public async Task createHost() {
         gameManager = new HostGameManager();
         await gameManager.initAsync();
     }

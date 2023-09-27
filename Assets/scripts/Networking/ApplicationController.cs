@@ -21,9 +21,15 @@ public class ApplicationController : MonoBehaviour{
 
         }else {
             ClientSingelton clientSingelton = Instantiate(clientPrefab);
-            await clientSingelton.createClient();
+            bool authenticated = await clientSingelton.createClient();
             HostSingelton hostSingelton = Instantiate(hostPrefab);
-            clientSingelton.createClient();
+            hostSingelton.createHost();
+
+            if (authenticated) {
+                clientSingelton.gameManager.goToMenu();
+            }
+
+
         }
     }
 
