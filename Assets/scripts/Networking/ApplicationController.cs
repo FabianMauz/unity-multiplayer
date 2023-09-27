@@ -6,6 +6,9 @@ using UnityEngine;
 public class ApplicationController : MonoBehaviour{
     [SerializeField]
     private ClientSingelton clientPrefab;
+    [SerializeField]
+    private HostSingelton hostPrefab;
+
     private async void  Start(){
         DontDestroyOnLoad(gameObject);
 
@@ -19,6 +22,8 @@ public class ApplicationController : MonoBehaviour{
         }else {
             ClientSingelton clientSingelton = Instantiate(clientPrefab);
             await clientSingelton.createClient();
+            HostSingelton hostSingelton = Instantiate(hostPrefab);
+            clientSingelton.createClient();
         }
     }
 
