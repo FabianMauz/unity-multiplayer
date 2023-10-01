@@ -6,13 +6,13 @@ using UnityEngine;
 public class HostSingelton : MonoBehaviour{
 
     private static HostSingelton instance;
-    private HostGameManager gameManager;
+    public HostGameManager gameManager { private set; get; }
 
     public static HostSingelton Instance { get {
             if (instance != null) { return instance; }
             instance = FindAnyObjectByType<HostSingelton>();
             if (instance == null) {
-                print("Error in client sigelton inzantion");
+                print("Error in host singelton instantion");
                 return null;
             }
             return instance;
@@ -25,7 +25,8 @@ public class HostSingelton : MonoBehaviour{
 
     public async Task createHost() {
         gameManager = new HostGameManager();
-        await gameManager.initAsync();
+        
+        await gameManager.startHostAsync();
     }
 
 }

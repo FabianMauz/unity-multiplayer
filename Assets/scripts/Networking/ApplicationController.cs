@@ -20,10 +20,15 @@ public class ApplicationController : MonoBehaviour{
         if (dedicatedServer) {
 
         }else {
+            Task.Delay(1000);
+            
+
             ClientSingelton clientSingelton = Instantiate(clientPrefab);
             bool authenticated = await clientSingelton.createClient();
+
             HostSingelton hostSingelton = Instantiate(hostPrefab);
             hostSingelton.createHost();
+
 
             if (authenticated) {
                 clientSingelton.gameManager.goToMenu();
