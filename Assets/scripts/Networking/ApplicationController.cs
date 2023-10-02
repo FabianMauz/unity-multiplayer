@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class ApplicationController : MonoBehaviour{
     [SerializeField]
-    private ClientSingelton clientPrefab;
+    public ClientSingelton clientPrefab;
     [SerializeField]
-    private HostSingelton hostPrefab;
+    public HostSingelton hostPrefab;
+
+    public ClientSingelton clientSingelton;
+    public HostSingelton hostSingelton;
 
     private async void  Start(){
         DontDestroyOnLoad(gameObject);
@@ -23,12 +26,10 @@ public class ApplicationController : MonoBehaviour{
             Task.Delay(1000);
             
 
-            ClientSingelton clientSingelton = Instantiate(clientPrefab);
+            clientSingelton = Instantiate(clientPrefab);
             bool authenticated = await clientSingelton.createClient();
 
-            HostSingelton hostSingelton = Instantiate(hostPrefab);
-            hostSingelton.createHost();
-
+            hostSingelton = Instantiate(hostPrefab);
 
             if (authenticated) {
                 clientSingelton.gameManager.goToMenu();

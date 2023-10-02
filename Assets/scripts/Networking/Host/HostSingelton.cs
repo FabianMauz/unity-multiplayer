@@ -10,9 +10,10 @@ public class HostSingelton : MonoBehaviour{
 
     public static HostSingelton Instance { get {
             if (instance != null) { return instance; }
-            instance = FindAnyObjectByType<HostSingelton>();
+            instance = FindAnyObjectByType<ApplicationController>().hostPrefab;
+            
             if (instance == null) {
-                print("Error in host singelton instantion");
+                print("Error in host singelton instantion: "+FindAnyObjectByType<HostSingelton>());
                 return null;
             }
             return instance;

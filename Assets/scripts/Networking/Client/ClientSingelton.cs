@@ -10,7 +10,7 @@ public class ClientSingelton : MonoBehaviour{
 
     public static ClientSingelton Instance { get {
             if (instance != null) { return instance; }
-            instance = FindAnyObjectByType<ClientSingelton>();
+            instance = FindAnyObjectByType<ApplicationController>().clientSingelton;
             if (instance == null) {
                 print("Error in client sigelton inzantion");
                 return null;
