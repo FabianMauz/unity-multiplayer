@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -23,18 +24,23 @@ public class ApplicationController : MonoBehaviour{
         if (dedicatedServer) {
 
         }else {
-            Task.Delay(1000);
-            
+            try {
+              
+                
 
-            clientSingelton = Instantiate(clientPrefab);
-            bool authenticated = await clientSingelton.createClient();
+                clientSingelton = Instantiate(clientPrefab);
+                bool authenticated = await clientSingelton.createClient();
 
-            hostSingelton = Instantiate(hostPrefab);
 
-            if (authenticated) {
-                clientSingelton.gameManager.goToMenu();
+                hostSingelton = Instantiate(hostPrefab);
+                if (authenticated) {
+                    await Task.Delay(1000);
+                    clientSingelton.gameManager.goToMenu();
+                }
+            }catch(Exception e) {
+                Debug.LogError(e);
             }
-
+            Task.Delay(1000);
 
         }
     }
